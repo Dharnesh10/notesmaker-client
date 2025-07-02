@@ -8,7 +8,7 @@ import Topics from './components/Topics';
 import Notes from './components/Notes';
 import Subjects from './components/Subjects';
 import ChatBot from './components/ChatBot';
-import Formulas from './components/Formulas';
+import Message from './components/Message';
 import SessionExpired from './components/SessionExpired';
 import Calculator from './components/Calculator';
 import UnitConverter from './components/UnitConverter';
@@ -42,7 +42,7 @@ const App = () => {
         <Route path="subjects/:subjectId/topics" element={<Topics />} />
         <Route path="topics/:topicId/notes" element={<Notes />} />
         <Route path='chatbot' element={<ChatBot />} />
-        <Route path='formulas' element={<Formulas />} />
+        <Route path='message' element={<Message />} />
         <Route path='calculator' element={<Calculator />} />
         <Route path='unitconverter' element={<UnitConverter />} />
       </Route>

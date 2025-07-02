@@ -30,7 +30,7 @@ const Sidebar = () => {
         <Link to="/">🏠 Home</Link>
         <Link to="/create-subject">📚 Create Subject +</Link>
         <Link to="/chatbot">🤖 Chat Bot</Link>
-        <Link to="/formulas">📐 Formulas</Link>
+        <Link to="/message">Message</Link>
         <Link to="/calculator"><FaCalculator/> Calculator</Link>
         <Link to="/unitconverter">Unit Converter</Link>
       </nav>
