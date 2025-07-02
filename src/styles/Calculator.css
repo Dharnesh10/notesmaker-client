@@ -1,51 +1,50 @@
-.calculator {
+.calculator-container {
   max-width: 800px;
-  margin: 50px auto;
-  background: #e3f2fd; /* Light blue */
+  margin: 100px auto;
+  background: #bbdaf4; /* Darker blue (was display color) */
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   color: #0d47a1;
   font-family: Arial, sans-serif;
-
   display: flex;
-  flex-direction: column; /* Stack display on top, buttons below */
+  flex-direction: column;
 }
 
-.display {
-  background: #bbdefb;   /* Light blue */
+.calculator-display {
+  background: #e3f2fd; /* Lighter blue */
   padding: 30px;
   font-size: 2rem;
   border-radius: 8px;
   text-align: right;
   word-wrap: break-word;
   color: #0d47a1;
-  margin-bottom: 20px;   /* Space below display */
+  margin-bottom: 20px;
 }
 
-.buttons {
+.calculator-buttons {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 columns for more functions */
+  grid-template-columns: repeat(6, 1fr);
   gap: 12px;
 }
 
-button {
+.calculator-btn {
   padding: 20px;
   font-size: 1rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  background: #90caf9;
+  background: #e3f2fd; /* Lighter than #90caf9 */
   color: #0d47a1;
   transition: all 0.2s ease;
 }
 
-button:hover {
-  background: #64b5f6;
+.calculator-btn:hover {
+  background: #bbdefb; /* Slightly darker on hover */
 }
 
 .equals-btn {
-  grid-column: span 2; /* Make equals wider if you like */
+  grid-column: span 2;
   background: #1976d2;
   color: #fff;
 }
@@ -63,9 +62,8 @@ button:hover {
   background: #1e88e5;
 }
 
-/* Responsive fallback */
 @media (max-width: 768px) {
-  .buttons {
+  .calculator-buttons {
     grid-template-columns: repeat(4, 1fr);
   }
 }

@@ -58,8 +58,8 @@ const Home = () => {
                 <h2>{subject.title}</h2>
                 <p className="created-date">Created: {date}</p>
                 <div className="card-actions">
-                  <a href={`/subjects/${subject.id}/topics`} className="view-link">View Topics</a>
-                  <button className="delete-btn" onClick={() => setSubjectToDelete(subject)}>Delete</button>
+                  <a href={`/subjects/${subject.id}/topics`} className="home-view-btn">ViewTopics</a>
+                  <button className="home-delete-btn" onClick={() => setSubjectToDelete(subject)}>Delete</button>
                 </div>
               </div>
             );
@@ -74,7 +74,7 @@ const Home = () => {
           <div className="delete-card">
             <h3>Confirm Deletion</h3>
             <p>Are you sure you want to delete <strong>{subjectToDelete.title}</strong>?</p>
-            <div className="delete-buttons">
+            <div className="home-card-action-buttons">
                 <button className='card-delete-btn' onClick={() => setSubjectToDelete(null)}>Cancel</button>
                 <button className='card-confirm-btn' onClick={() => handleDelete(subjectToDelete.id)}>Confirm</button>
             </div>

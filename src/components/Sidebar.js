@@ -29,9 +29,10 @@ const Sidebar = () => {
       <nav className="sidebar-nav">
         <Link to="/">🏠 Home</Link>
         <Link to="/create-subject">📚 Create Subject +</Link>
-        <Link to="/ask-ai">🤖 Ask AI</Link>
+        <Link to="/chatbot">🤖 Chat Bot</Link>
         <Link to="/formulas">📐 Formulas</Link>
         <Link to="/calculator"><FaCalculator/> Calculator</Link>
+        <Link to="/unitconverter">Unit Converter</Link>
       </nav>
       <div className="sidebar-footer">
         <button className="logout-btn" onClick={handleLogout}>

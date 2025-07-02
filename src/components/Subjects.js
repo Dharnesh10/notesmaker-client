@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Subjects.css'; // create this CSS file
+import { FaPlus } from 'react-icons/fa'; 
 
 const Subjects = () => {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ const Subjects = () => {
         className="subject-input"
       />
       <button onClick={handleCreate} className="create-btn">
-        Create Subject
+        + Create Subject
       </button>
       {success && <p className={`message ${success.includes('✅') ? 'success' : 'error'}`}>{success}</p>}
     </div>

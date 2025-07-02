@@ -7,10 +7,11 @@ import Home from './components/Home';
 import Topics from './components/Topics';
 import Notes from './components/Notes';
 import Subjects from './components/Subjects';
-import AskAi from './components/AskAi';
+import ChatBot from './components/ChatBot';
 import Formulas from './components/Formulas';
 import SessionExpired from './components/SessionExpired';
 import Calculator from './components/Calculator';
+import UnitConverter from './components/UnitConverter';
 
 // Simple fake auth checker (replace with your real auth logic)
 const isAuthenticated = () => {
@@ -40,9 +41,10 @@ const App = () => {
         <Route path="create-subject" element={<Subjects />} />
         <Route path="subjects/:subjectId/topics" element={<Topics />} />
         <Route path="topics/:topicId/notes" element={<Notes />} />
-        <Route path='ask-ai' element={<AskAi />} />
+        <Route path='chatbot' element={<ChatBot />} />
         <Route path='formulas' element={<Formulas />} />
         <Route path='calculator' element={<Calculator />} />
+        <Route path='unitconverter' element={<UnitConverter />} />
       </Route>
 
       {/* Redirect all unknown paths */}
