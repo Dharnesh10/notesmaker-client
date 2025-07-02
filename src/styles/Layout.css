@@ -1,0 +1,23 @@
+/* Layout.css */
+
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: #f9fafb;
+}
+
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding-left: 250px; /* Matches Sidebar width */
+  transition: padding-left 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 0; /* Sidebar collapses on mobile */
+  }
+}

@@ -1,0 +1,66 @@
+/* Subjects.css */
+
+body {
+  background: #f7f9fc;
+}
+
+.create-subject {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.create-subject h2 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.subject-input {
+  width: 100%;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.subject-input:focus {
+  border-color: #007bff;
+}
+
+.create-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.create-btn:hover {
+  background: #0056b3;
+}
+
+.message {
+  margin-top: 20px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.success {
+  color: #28a745;
+}
+
+.error {
+  color: #dc3545;
+}
