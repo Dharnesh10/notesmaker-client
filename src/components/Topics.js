@@ -19,6 +19,7 @@ const Topics = () => {
     fetchTopics();
   }, [subjectId]);
 
+
   const fetchTopics = () => {
     axios
       .get(`http://localhost:5000/api/subjects/${subjectId}/topics`, {

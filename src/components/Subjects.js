@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Subjects.css'; // create this CSS file
-import { FaPlus } from 'react-icons/fa'; 
+import '../styles/Subjects.css'; // create this CSS file 
 
 const Subjects = () => {
   const navigate = useNavigate();
