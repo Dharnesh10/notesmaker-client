@@ -75,6 +75,8 @@ const Notes = () => {
       .catch((err) => console.error(err));
   };
 
+  
+
   return (
     <div className="notes-page">
       <h4 className="notes-title">NOTES</h4>

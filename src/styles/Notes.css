@@ -16,7 +16,7 @@
 }
 
 .notes-list {
-  flex: 1;
+  display: flex;
   overflow-y: auto;
   background: #fff;
   border-radius: 10px;
@@ -29,14 +29,30 @@
   padding-left: 20px;
 }
 
-.note-item {
+/* .note-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
   margin-bottom: 10px;
   border-bottom: 1px solid #eee;
+} */
+
+.note-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* <-- instead of center */
+  padding: 8px 0;
+  flex-wrap: wrap; /* allow wrapping */
+  gap: 10px; /* optional for spacing */
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
+
+.note-item span {
+  flex: 1; /* let text take available space */
+}
+
 
 .note-actions {
   display: flex;
