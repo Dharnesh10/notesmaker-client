@@ -10,6 +10,7 @@ const Notes = () => {
   const [newContent, setNewContent] = useState('');
   const [editingNote, setEditingNote] = useState(null);
   const [editedContent, setEditedContent] = useState('');
+  const [noteToDelete, setNoteToDelete] = useState(null);
 
   useEffect(() => {
     fetchNotes();
@@ -45,7 +46,10 @@ const Notes = () => {
       .delete(`http://localhost:5000/api/topics/${topicId}/notes/${id}`, {
         withCredentials: true,
       })
-      .then(() => fetchNotes())
+      .then(() => {
+        fetchNotes();
+        setNoteToDelete(null)
+      })
       .catch((err) => console.error(err));
   };
 
@@ -85,12 +89,12 @@ const Notes = () => {
         <ol>
           {notes.map((note) => (
             <li key={note.id} className="note-item">
-              <span>{note.content}</span>
+              <div>{note.content}</div>
               <div className="note-actions">
                 <button className="edit-btn" onClick={() => handleEditClick(note)}>
                   <FaEdit /> Edit
                 </button>
-                <button className="delete-btn" onClick={() => handleDelete(note.id)}>
+                <button className="delete-btn" onClick={() => setNoteToDelete(note)}>
                   <FaTrash /> Delete
                 </button>
               </div>
@@ -127,6 +131,19 @@ const Notes = () => {
             <div className="edit-buttons">
               <button className="cancel-btn" onClick={handleCancelEdit}>Cancel</button>
               <button className="save-btn" onClick={handleSaveEdit}>Save</button>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      {noteToDelete && (
+        <div className="delete-overlay">
+          <div className="delete-card">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete <strong>{noteToDelete.title}</strong>?</p>
+            <div className="home-card-action-buttons">
+                <button className='card-delete-btn' onClick={() => setNoteToDelete(null)}>Cancel</button>
+                <button className='card-confirm-btn' onClick={() => handleDelete(noteToDelete.id)}>Confirm</button>
             </div>
           </div>
         </div>

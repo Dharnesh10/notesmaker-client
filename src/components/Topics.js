@@ -12,6 +12,7 @@ const Topics = () => {
   const [search, setSearch] = useState('');
   const [editingTopic, setEditingTopic] = useState(null);
   const [editedTitle, setEditedTitle] = useState('');
+  const [topicToDelete, setTopicToDelete] = useState(null);
 
   const navigate = useNavigate();
 
@@ -53,7 +54,10 @@ const Topics = () => {
       .delete(`http://localhost:5000/api/topics/${id}`, {
         withCredentials: true,
       })
-      .then(() => fetchTopics())
+      .then(() => {
+        fetchTopics();
+        setTopicToDelete(null);
+      })
       .catch((err) => console.error(err));
   };
 
@@ -126,7 +130,7 @@ const Topics = () => {
                 </button>
                 <button
                   className="delete-btn"
-                  onClick={() => handleDelete(topic.id)}
+                  onClick={() => setTopicToDelete(topic)}
                 >
                   Delete <FaTrash />
                 </button>
@@ -165,6 +169,19 @@ const Topics = () => {
             <div className="edit-buttons">
               <button className="cancel-btn" onClick={handleCancelEdit}>Cancel</button>
               <button className="save-btn" onClick={handleSaveEdit}>Save</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {topicToDelete && (
+        <div className="delete-overlay">
+          <div className="delete-card">
+            <h3>Confirm Deletion</h3>
+            <p>Are you sure you want to delete <strong>{topicToDelete.title}</strong>?</p>
+            <div className="home-card-action-buttons">
+                <button className='card-delete-btn' onClick={() => setTopicToDelete(null)}>Cancel</button>
+                <button className='card-confirm-btn' onClick={() => handleDelete(topicToDelete.id)}>Confirm</button>
             </div>
           </div>
         </div>
