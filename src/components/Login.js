@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../styles/Login.css'; // Assuming you have a CSS file for styling
+import '../styles/Login.css'; // Adjust path if needed
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,11 +17,17 @@ const Login = () => {
         { email, password },
         { withCredentials: true }
       );
-      console.log(response.data);
-      localStorage.setItem('isLoggedIn', 'true');
-      navigate('/', { replace: true });;
+
+      console.log('Login response:', response.data);
+
+      // ✅ Save login status — match what's expected in App.js
+      localStorage.setItem('username', email); // or response.data.username
+
+      // ✅ Redirect to layout/home
+      navigate('/', { replace: true });
+
     } catch (error) {
-      console.error(error);
+      console.error('Login failed:', error);
       setErrorMessage('Invalid credentials');
     }
   };

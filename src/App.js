@@ -13,15 +13,15 @@ import SessionExpired from './components/SessionExpired';
 import Calculator from './components/Calculator';
 import UnitConverter from './components/UnitConverter';
 
-// Simple fake auth checker (replace with your real auth logic)
+// Authentication check using localStorage
 const isAuthenticated = () => {
-  return true;
+  return !!localStorage.getItem('username'); // or use a token
 };
 
 // Protected route wrapper
 const ProtectedRoute = ({ children }) => {
   if (!isAuthenticated()) {
-    return <Navigate to="/session-expired" replace />;
+    return <Navigate to="/login" replace />;
   }
   return children;
 };
@@ -29,25 +29,25 @@ const ProtectedRoute = ({ children }) => {
 const App = () => {
   return (
     <Routes>
-      {/* Public */}
+      {/* Public routes */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/session-expired" element={<SessionExpired />} />
 
-      {/* Protected */}
+      {/* Protected routes */}
       <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
         <Route index element={<Home />} />
         <Route path="home" element={<Home />} />
         <Route path="create-subject" element={<Subjects />} />
         <Route path="subjects/:subjectId/topics" element={<Topics />} />
         <Route path="topics/:topicId/notes" element={<Notes />} />
-        <Route path='chatbot' element={<ChatBot />} />
-        <Route path='message' element={<Message />} />
-        <Route path='calculator' element={<Calculator />} />
-        <Route path='unitconverter' element={<UnitConverter />} />
+        <Route path="chatbot" element={<ChatBot />} />
+        <Route path="message" element={<Message />} />
+        <Route path="calculator" element={<Calculator />} />
+        <Route path="unitconverter" element={<UnitConverter />} />
       </Route>
 
-      {/* Redirect all unknown paths */}
+      {/* Redirect unknown routes */}
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );

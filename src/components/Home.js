@@ -1,7 +1,7 @@
-// src/pages/Home.js
 import React, { useEffect, useState } from 'react';
 import '../styles/Home.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -58,7 +58,8 @@ const Home = () => {
                 <h2>{subject.title}</h2>
                 <p className="created-date">Created: {date}</p>
                 <div className="card-actions">
-                  <a href={`/subjects/${subject.id}/topics`} className="home-view-btn">ViewTopics</a>
+                  {/* <a href={`/subjects/${subject.id}/topics`} className="home-view-btn">ViewTopics</a> */}
+                  <Link to={`/subjects/${subject.id}/topics`} className="home-view-btn">ViewTopics</Link>
                   <button className="home-delete-btn" onClick={() => setSubjectToDelete(subject)}>Delete</button>
                 </div>
               </div>

@@ -29,11 +29,11 @@ const Sidebar = () => {
         <h2>NotesMaker</h2>
       </div>
       <nav className="sidebar-nav">
-        <Link to="/">Home</Link>
         <div className="create-add-button">
             <Link to="/create-subject">Create Subject</Link>
             <Link to="/create-subject" className='add-symbol'>+</Link>
         </div>
+        <Link to="/">Home</Link>
         <Link to="/chatbot">Chat Bot</Link>
         <Link to="/message">Message</Link>
         <Link to="/calculator">Calculator</Link>
@@ -42,6 +42,9 @@ const Sidebar = () => {
       <div className="sidebar-footer">
         <button className="logout-btn" onClick={handleLogout}><MdLogout/></button>
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        {/* <button className="logout-btn" onClick={handleLogout}>
+          <MdLogout style={{ marginRight: '6px' }} /> Logout
+        </button> */}
       </div>
     </aside>
   );
