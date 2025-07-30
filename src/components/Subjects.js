@@ -20,7 +20,7 @@ const Subjects = () => {
       { withCredentials: true }
     )
       .then(() => {
-        setSuccess('✅ Subject created successfully!');
+        setSuccess('Subject created successfully!');
         setTitle('');
         setTimeout(() => {
           setSuccess('');
@@ -29,7 +29,7 @@ const Subjects = () => {
       })
       .catch(err => {
         console.error(err);
-        setSuccess('❌ Failed to create subject.');
+        setSuccess('Failed to create subject.');
       });
   };
 
@@ -44,9 +44,9 @@ const Subjects = () => {
         className="subject-input"
       />
       <button onClick={handleCreate} className="create-btn">
-        + Create Subject
+        Create Subject
       </button>
-      {success && <p className={`message ${success.includes('✅') ? 'success' : 'error'}`}>{success}</p>}
+      {success && <p className="message success">{success}</p>}
     </div>
   );
 };

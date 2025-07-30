@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import '../styles/Notes.css';
-import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
+import { FaEdit, FaTrash, FaPlus, FaCamera, FaTimes } from 'react-icons/fa';
 
 const Notes = () => {
   const { topicId } = useParams();
@@ -11,6 +11,8 @@ const Notes = () => {
   const [editingNote, setEditingNote] = useState(null);
   const [editedContent, setEditedContent] = useState('');
   const [noteToDelete, setNoteToDelete] = useState(null);
+  const [image, setImage] = useState(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     fetchNotes();
@@ -28,14 +30,22 @@ const Notes = () => {
   const handleCreate = () => {
     if (newContent.trim() === '') return;
 
+    const formData = new FormData();
+    formData.append('content', newContent);
+    if (image) {
+      formData.append('image', image);
+    }
+
     axios
-      .post(
-        `http://localhost:5000/api/topics/${topicId}/notes`,
-        { content: newContent },
-        { withCredentials: true }
-      )
+      .post(`http://localhost:5000/api/topics/${topicId}/notes`, formData, {
+        withCredentials: true,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       .then(() => {
         setNewContent('');
+        setImage(null);
         fetchNotes();
       })
       .catch((err) => console.error(err));
@@ -48,7 +58,7 @@ const Notes = () => {
       })
       .then(() => {
         fetchNotes();
-        setNoteToDelete(null)
+        setNoteToDelete(null);
       })
       .catch((err) => console.error(err));
   };
@@ -79,7 +89,9 @@ const Notes = () => {
       .catch((err) => console.error(err));
   };
 
-  
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
+  };
 
   return (
     <div className="notes-page">
@@ -89,7 +101,14 @@ const Notes = () => {
         <ol>
           {notes.map((note) => (
             <li key={note.id} className="note-item">
-              <div>{note.content}</div>
+              <div className="note-text">{note.content}</div>
+              {note.image_path && (
+                <img
+                  src={`http://localhost:5000${note.image_path}`}
+                  alt="Note"
+                  className="note-image"
+                />
+              )}
               <div className="note-actions">
                 <button className="edit-btn" onClick={() => handleEditClick(note)}>
                   <FaEdit /> Edit
@@ -113,6 +132,28 @@ const Notes = () => {
             if (e.key === 'Enter') handleCreate();
           }}
         />
+
+        <input
+          type="file"
+          accept="image/*"
+          ref={fileInputRef}
+          onChange={(e) => setImage(e.target.files[0])}
+          className="file-input-hidden"
+        />
+
+        <button className="camera-btn" onClick={triggerFileInput} title="Attach Image">
+          <FaCamera />
+        </button>
+
+        {image && (
+          <div className="image-preview">
+            <span className="image-name">{image.name}</span>
+            <button className="remove-image-btn" onClick={() => setImage(null)}>
+              <FaTimes />
+            </button>
+          </div>
+        )}
+
         <button onClick={handleCreate}>
           <FaPlus />
         </button>
@@ -135,15 +176,15 @@ const Notes = () => {
           </div>
         </div>
       )}
-      
+
       {noteToDelete && (
         <div className="delete-overlay">
           <div className="delete-card">
             <h3>Confirm Deletion</h3>
-            <p>Are you sure you want to delete <strong>{noteToDelete.title}</strong>?</p>
+            <p>Are you sure you want to delete this note?</p>
             <div className="home-card-action-buttons">
-                <button className='card-delete-btn' onClick={() => setNoteToDelete(null)}>Cancel</button>
-                <button className='card-confirm-btn' onClick={() => handleDelete(noteToDelete.id)}>Confirm</button>
+              <button className='card-delete-btn' onClick={() => setNoteToDelete(null)}>Cancel</button>
+              <button className='card-confirm-btn' onClick={() => handleDelete(noteToDelete.id)}>Confirm</button>
             </div>
           </div>
         </div>

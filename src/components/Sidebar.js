@@ -30,7 +30,7 @@ const Sidebar = () => {
       </div>
       <nav className="sidebar-nav">
         <div className="create-add-button">
-            <Link to="/create-subject">Create Subject</Link>
+            <Link to="/create-subject" className='create-subject-nav'>Create Subject</Link>
             <Link to="/create-subject" className='add-symbol'>+</Link>
         </div>
         <Link to="/">Home</Link>

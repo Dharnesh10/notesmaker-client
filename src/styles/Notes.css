@@ -159,3 +159,88 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
+.note-image {
+  max-width: 200px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.file-input {
+  padding: 5px;
+  font-size: 12px;
+  border: none;
+  background-color: #f0f0f0;
+  border-left: 1px solid #ddd;
+}
+
+/* Hide default file input */
+.file-input-hidden {
+  display: none;
+}
+
+/* Style camera icon as button */
+.camera-btn {
+  background: #eee;
+  border: none;
+  padding: 0 16px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-btn:hover {
+  background: #ddd;
+}
+
+/* Align note content and image side by side */
+.note-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.note-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.note-image {
+  max-width: 150px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-preview {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 4px 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+  gap: 8px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
+
+.image-name {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.remove-image-btn {
+  background: transparent;
+  border: none;
+  color: red;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}

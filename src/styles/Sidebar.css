@@ -34,15 +34,16 @@
 }
 
 .sidebar-nav a {
-  color: #f9fafb;
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .sidebar-nav a:hover {
-  color: #60a5fa; /* Soft blue hover */
-  /* background-color: blue; */
+  color: #3b82f6; 
+  /* text-shadow: 0 0 4px #fff; */
+  transform: scale(1.05);
 }
 
 .sidebar-nav .create-add-button {
@@ -51,16 +52,49 @@
   align-items: center;
 }
 
+.sidebar-nav .create-add-button .create-subject-nav {
+  color: #111827;
+  text-decoration: none;
+}
+
+.sidebar-nav .create-add-button {
+  background-color: #fff;
+  padding: 20px 25px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar-nav .create-add-button:hover {
+  box-shadow: 0 0 4px 1px white;
+}
+
 .sidebar-nav .create-add-button .add-symbol {
   display: inline-block;
   font-size: 1.8rem;
-  opacity: 0.6;
+  opacity: 1;
   width: 24px;
   height: 24px;
   text-align: center;
   line-height: 24px;
-  color: #fff;
+  color: #111827;
+    /* background: linear-gradient(
+    90deg,
+    red,
+    green,
+    blue,
+    orange,
+    indigo,
+    cyan,
+    violet,
+    yellow,
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; */
 }
+
+
 
 .sidebar-footer {
   margin-top: 40px;
