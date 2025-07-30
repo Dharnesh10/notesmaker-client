@@ -71,6 +71,23 @@
   color: white;
 }
 
+.speak-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.speak-btn:hover {
+  background-color: #45a049;
+}
+
 .add-note {
   display: flex;
   margin-top: 50px;
@@ -189,6 +206,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 1px;
+  border-radius: 2px;
 }
 
 .camera-btn:hover {
@@ -244,3 +263,79 @@
   cursor: pointer;
   padding: 0;
 }
+
+/* Enlarged image modal */
+.image-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-modal {
+  position: relative;
+  background: #fff;
+  padding: 0;
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-modal img {
+  width: auto;
+  height: 100%;
+  max-height: 95vh;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+
+.close-modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Hover tooltip */
+.note-image-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.image-tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  z-index: 2;
+  font-size: 12px;
+}
+
+.note-image-wrapper:hover .image-tooltip {
+  visibility: visible;
+}
+

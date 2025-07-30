@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   background: #f3f4f6; /* Light grey background */
-  padding: 20px;
+  padding: 50px 150px 50px 150px;
   box-sizing: border-box;
   overflow-y: hidden; /* Prevent container scroll */
 }
@@ -99,7 +99,7 @@
 }
 
 .send-button {
-  background: #6b7280; /* Medium grey */
+  background: #0d6efd; /* Medium grey */
   color: #f9fafb;
   padding: 15px 25px;
   border: none;
@@ -109,8 +109,32 @@
 }
 
 .send-button:hover {
-  background: #4b5563; /* Darker grey on hover */
+  background: #0b5ed7; /* Darker grey on hover */
 }
+
+.mic-button {
+  background: #f3f4f6;
+  color: #111827;
+  padding: 15px;
+  border: 1px solid #9ca3af;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.mic-button:hover {
+  background-color: #e5e7eb;
+}
+
+.mic-button.listening {
+  background-color: #f87171; /* red when listening */
+  color: white;
+}
+
 
 /* Responsive: sidebar collapses to top, so full width */
 @media (max-width: 768px) {
