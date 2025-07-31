@@ -35,7 +35,7 @@ const Sidebar = () => {
         </div>
         <Link to="/">Home</Link>
         <Link to="/chatbot">Chat Bot</Link>
-        <Link to="/message">Message</Link>
+        <Link to="/message">Online Topics</Link>
         <Link to="/calculator">Calculator</Link>
         <Link to="/unitconverter">Unit Converter</Link>
       </nav>

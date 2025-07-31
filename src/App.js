@@ -8,10 +8,12 @@ import Topics from './components/Topics';
 import Notes from './components/Notes';
 import Subjects from './components/Subjects';
 import ChatBot from './components/ChatBot';
-import Message from './components/Message';
+import Message from './components/OnlineContentPage';
+import OnlineContent from './components/OnlineContent';
 import SessionExpired from './components/SessionExpired';
 import Calculator from './components/Calculator';
 import UnitConverter from './components/UnitConverter';
+
 
 // Authentication check using localStorage
 const isAuthenticated = () => {
@@ -41,6 +43,7 @@ const App = () => {
         <Route path="create-subject" element={<Subjects />} />
         <Route path="subjects/:subjectId/topics" element={<Topics />} />
         <Route path="topics/:topicId/notes" element={<Notes />} />
+        <Route path="topics/:topicId/content" element={<OnlineContent />} />
         <Route path="chatbot" element={<ChatBot />} />
         <Route path="message" element={<Message />} />
         <Route path="calculator" element={<Calculator />} />
